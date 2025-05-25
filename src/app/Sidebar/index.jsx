@@ -9,6 +9,7 @@ import Markdown from 'react-markdown'
 
 const Sidebar = () => {
   const {
+    isOnline,
     sidebarRef,
     notesList,
     searchVal,
@@ -67,6 +68,7 @@ const Sidebar = () => {
                 loading ?
                   <li>Loading Notes...</li> :
                   notesList?.map((note) => {
+                    if (!isOnline && note?.type === "delete") return;
                     return (
                       <li key={note?.id} className='w-full p-2 cursor-pointer flex justify-between items-center rounded-md bg-white hover:shadow-gray-900'>
                         <button onClick={() => handleNoteClick(note)} className='h-full truncate text-center w-[65%] cursor-pointer'>

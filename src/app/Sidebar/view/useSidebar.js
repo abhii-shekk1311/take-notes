@@ -43,12 +43,13 @@ const useSidebar = () => {
 
         if (!isOnline) {
             await saveNoteToDB({ ...note, id: note?.id, synced: false, type: "delete" });
+            fetchAllNotes(debouncedValue);
             setDeletingNoteId(null);
             return;
         }
         return deleteNote(note?.id).then(async () => {
             fetchAllNotes(debouncedValue);
-            await deleteOfflineNote(note?.id)
+            await deleteOfflineNote(note?.id);
             setDeletingNoteId(null);
         })
             .catch((error) => {
@@ -93,6 +94,7 @@ const useSidebar = () => {
     }, [isSidebarOpen]);
 
     return {
+        isOnline,
         sidebarRef,
         notesList,
         searchVal,
