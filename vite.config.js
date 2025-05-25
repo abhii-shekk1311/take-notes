@@ -14,7 +14,7 @@ export default defineConfig({
       manifest: {
         name: "Take Notes",
         short_name: "Notes",
-        start_url: "/dashboard",
+        start_url: "/",
         display: 'standalone',
         background_color: "#fff",
         theme_color: "#2196f3",

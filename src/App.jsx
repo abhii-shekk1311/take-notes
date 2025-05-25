@@ -8,8 +8,7 @@ function App() {
     <NoteContextProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigate to="/dashboard" />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/" element={<Dashboard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
