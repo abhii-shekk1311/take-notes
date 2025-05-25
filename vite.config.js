@@ -6,11 +6,11 @@ import { VitePWA } from 'vite-plugin-pwa'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    tailwindcss(), 
+    tailwindcss(),
     react(),
     VitePWA({
       registerType: "autoUpdate",
-      includeAssets: ["/sticky-notes.png", "/delete2.png", "/write.png", "/search.png"],
+      includeAssets: ["/sticky-notes.png", "/delete2.png", "/write.png", "/search.png", "/right-arrow"],
       manifest: {
         name: "Take Notes",
         short_name: "Notes",
@@ -36,6 +36,11 @@ export default defineConfig({
           },
           {
             src: '/search.png',
+            sizes: '20x20',
+            type: 'image/png',
+          },
+          {
+            src: "/right-arrow",
             sizes: '20x20',
             type: 'image/png',
           }
